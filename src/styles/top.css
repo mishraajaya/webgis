@@ -1,0 +1,46 @@
+.top-bar-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 1001;
+  background-color: darkred;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar-container > .logo-container {
+  font-size: 2rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.top-menu-container {
+  display: flex;
+  padding: 1rem;
+  align-items: flex-end;
+}
+
+.drawing {
+  padding: 0 10px 0 15px;
+  border-right: 1px solid;
+  cursor: pointer;
+}
+
+.drawing:last-child {
+  border-right: none;
+}
+
+.drawing-container {
+  position: fixed;
+  display: none;
+  top: 100px;
+  right: 0;
+  width: 270px;
+  height: 40px;
+  background-color: darkred;
+  align-items: center;
+  justify-content: space-between;
+}

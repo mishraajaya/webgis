@@ -1,0 +1,35 @@
+h1 {
+  height: 100vh;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 5em;
+  font-family: sans-serif;
+  text-shadow: 0 0 20px black;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darkgrey;
+}
+
+.mouseLocation {
+  position: fixed;
+  bottom: 0;
+  right:0;
+  width: 180px;
+  height: 40px;
+  background-color: darkred;
+  color: white;
+  font-weight: bold;
+}

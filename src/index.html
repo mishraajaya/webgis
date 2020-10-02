@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenLayers Project</title>
+</head>
+<body>
+  <div id="map" class="map"></div>
+  <div id="mouseLocation" class="mouseLocation"></div>
+  <div class="top-bar-container">
+    <div class="logo-container">Orchid WebGIS</div>
+    <div class="top-menu-container">
+      <div class="drawing"><span id="drawingTools">Drawing Tools</span></div>
+    </div>
+    <div class="drawing-container" id="drawingContainer">
+      <div class="drawing"><span id="drawPolygon">Polygon</span></div>
+      <div class="drawing"><span id="drawLine">Line</span></div>
+      <div class="drawing"><span id="drawCircle">Circle</span></div>
+      <div class="drawing"><span id="drawNothing">Cancel</span></div>
+    </div>
+  </div>
+  <script>
+    let map = ''
+    let vectorSource = ''
+    let backgroundLayerOSM = ''
+    let backgroundLayerBingAerial = ''
+    let nepalBoundaryLayer = ''
+  </script>
+  <script src="/main-bundle.js"></script>
+</body>
+</html>

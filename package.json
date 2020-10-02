@@ -1,0 +1,24 @@
+{
+  "name": "webpack-ol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server:hot:dev": "webpack-dev-server --config=config/webpack.dev.js",
+    "build:static": "webpack --config=config/webpack.dev.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^4.3.0",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.1.0",
+    "html-loader": "^1.3.0",
+    "ol": "^6.4.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
