@@ -1,0 +1,49 @@
+.print-container {
+  display: flex;
+  position: fixed;
+  background: var(--orchid-color);
+  top: 100px;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  z-index: 2001;
+  color: white;
+  flex-direction: column;
+}
+
+.print-map-title{
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 3px solid #616161;
+}
+
+.print-map-configuration {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.print-map-configuration label {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.print-map-configuration select {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.print-map-configuration button {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: rgb(189, 189, 189);
+  color: rgb(82, 1, 82);
+}
+
+

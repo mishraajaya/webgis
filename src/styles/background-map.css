@@ -1,0 +1,35 @@
+.background-map-container {
+  z-index: 1001;
+  position:fixed;
+  display:none;
+  left: 0;
+  width: 200px;
+  height: 455px;
+  top: 220px;
+  background-color: var(--orchid-color);
+  flex-flow: column;
+}
+
+.map-container {
+  padding: 0.4rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+.map-with-text-container {
+  background-color: rgb(44, 43, 43);
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 160px;
+  height: 110px;
+  padding: 0.5rem;
+  padding-bottom: 15px;
+  border: 3px solid rgb(10, 10, 10);
+}
+.map-with-text-container:hover {
+  border: 3px solid rgb(248, 247, 247);
+}

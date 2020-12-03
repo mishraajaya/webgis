@@ -3,7 +3,7 @@
   position: fixed;
   font-size: 30px !important;
   border-radius: 50px !important;
-  background-color: darkred !important;
+  background-color: var(--orchid-color) !important;
   color: white;
 }
 

@@ -7,7 +7,9 @@ module.exports = {
       "./src/js/map.js",
       "./src/js/drawing.js",
       "./src/js/mapLayers/backgroundLayers.js",
-      "./src/js/mapLayers/vectorLayers.js"
+      "./src/js/mapLayers/vectorLayers.js",
+      "./src/js/printMap.js",
+      "./src/js/layerTree.js"
     ]
   },
   mode: "development",
@@ -22,6 +24,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        use: [
+          { loader: "babel-loader" }
+        ],
+        exclude: /node_modules/
+      },
       {
         test: /\.css$/,
         use: [
@@ -60,6 +69,20 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: "file-loader",
+        options: {
+          name: "images/[name].[ext]"
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: "file-loader",
+        options: {
+          outputPath: "../dist/fonts"
+        }
       }
     ]
   }

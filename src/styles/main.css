@@ -1,3 +1,7 @@
+:root {
+  --orchid-color: #59025c;
+}
+
 h1 {
   height: 100vh;
   display: flex;
@@ -29,7 +33,7 @@ html, body {
   right:0;
   width: 180px;
   height: 40px;
-  background-color: darkred;
+  background-color: var(--orchid-color);
   color: white;
   font-weight: bold;
 }

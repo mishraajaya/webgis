@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenLayers Project</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 </head>
 <body>
   <div id="map" class="map"></div>
@@ -11,13 +12,105 @@
   <div class="top-bar-container">
     <div class="logo-container">Orchid WebGIS</div>
     <div class="top-menu-container">
-      <div class="drawing"><span id="drawingTools">Drawing Tools</span></div>
+      <div class="menu-item" id="backgroundMapMenu">
+        <i class="fas fa-globe-asia"></i>
+        <span>Background Maps</span>
+      </div>
+      <div class="menu-item" id="mapLayersMenu">
+        <i class="fas fa-map"></i>
+        <span>Map Layers</span>
+      </div>
+      <div class="menu-item" id="drawingToolsMenu">
+        <i class="fas fa-drafting-compass"></i>
+        <span>Drawing Tools</span>
+      </div>
+      <div class="menu-item" id="printMapMenu">
+        <i class="fas fa-print"></i>
+        <span>Print Map</span>
+      </div>
     </div>
     <div class="drawing-container" id="drawingContainer">
-      <div class="drawing"><span id="drawPolygon">Polygon</span></div>
-      <div class="drawing"><span id="drawLine">Line</span></div>
-      <div class="drawing"><span id="drawCircle">Circle</span></div>
-      <div class="drawing"><span id="drawNothing">Cancel</span></div>
+      <div class="drawing" id="drawPolygon">
+        <i class="fas fa-draw-polygon"></i>
+        <span>Draw Polygon</span>
+      </div>
+      <div class="drawing" id="drawLine">
+        <i class="fas fa-wave-square"></i>
+        <span>Draw Line</span>
+      </div>
+      <div class="drawing" id="drawCircle">
+        <i class="far fa-circle"></i>
+        <span>Draw Circle</span>
+      </div>
+      <div class="drawing" id="deleteDrawings">
+        <i class="far fa-trash-alt"></i>
+        <span>Delete All</span>
+      </div>
+      <div class="drawing" id="drawNothing">
+        <i class="far fa-window-close"></i>
+        <span>Close</span>
+      </div>
+    </div>
+  </div>
+  <div class="layer-tree-map-container" id="layerTreeContainer">
+    <div class="layer-title">Map Layers</div>
+    <div class="layers-container">
+      <div class="layer-category">Political Layers</div>
+      <div class="layer">
+        <input type="checkbox" name="nepalBoundary" id="nepalBoundary">Nepal Boundary</input>
+      </div>
+      <div class="layer">
+        <input type="checkbox" name="stateBoundary" id="stateBoundary">stateBoundary</input>
+      </div>
+    </div>
+  </div>
+  <div class="background-map-container" id="backgroundMapContainer">
+    <div class="map-container">
+      <div class="map-with-text-container" id="backgroundOSMMap">
+        <div>
+          <img src="./images/osmmap.png" alt="" width="150px" height="100">
+          <div class="background-text">OSM Map</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-container"  id="backgroundBingMap">
+      <div class="map-with-text-container">
+        <div>
+          <img src="./images/bingmap.png" alt="" width="150px" height="100">
+          <div class="background-text">Bing Map</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-container">
+      <div class="map-with-text-container">
+        <div>
+          <img src="./images/osmmap.png" alt="" width="150px" height="100">
+          <div class="background-text">OSM Map</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="print-container" id="printMap">
+    <div class="print-map-title">Select Print Options</div>
+    <div class="print-map-configuration">
+      <form id="printForm">
+        <label for="pageFormat">Page Type:</label>
+        <select id="pageFormat">
+          <option value="a0">A0</option>
+          <option value="a1">A1</option>
+          <option value="a2">A2</option>
+          <option value="a3">A3</option>
+          <option value="a4">A4</option>
+          <option value="a5">A5</option>
+        </select>
+        <label for="pageResolution">Resolution</label>
+        <select id="pageResolution">
+          <option value="72">72 dpi</option>
+          <option value="150">150 dpi</option>
+          <option value="300">300 dpi</option>
+        </select>
+        <button id="exportMap">Export to PDF</button>
+      </form>
     </div>
   </div>
   <script>
@@ -26,6 +119,7 @@
     let backgroundLayerOSM = ''
     let backgroundLayerBingAerial = ''
     let nepalBoundaryLayer = ''
+    let stateBoundaryLayer=''
   </script>
   <script src="/main-bundle.js"></script>
 </body>

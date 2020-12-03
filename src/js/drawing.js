@@ -6,9 +6,13 @@ document.onreadystatechange = function () {
     const drawLine = document.getElementById('drawLine')
     const drawCircle = document.getElementById('drawCircle')
     const drawNothing = document.getElementById('drawNothing')
-    const drawingTools = document.getElementById('drawingTools')
+    const drawingTools = document.getElementById('drawingToolsMenu')
 
     drawingTools.onclick = () => {
+      const style = document.getElementById('drawingContainer').style.display
+      if (style === 'flex')
+        document.getElementById('drawingContainer').style.display = 'none'
+      else
       document.getElementById('drawingContainer').style.display = 'flex'
     }
 

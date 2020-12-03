@@ -5,7 +5,7 @@
   width: 100%;
   height: 90px;
   z-index: 1001;
-  background-color: darkred;
+  background-color: var(--orchid-color);
   color: white;
   align-items: center;
   justify-content: space-between;
@@ -23,14 +23,37 @@
   align-items: flex-end;
 }
 
-.drawing {
-  padding: 0 10px 0 15px;
-  border-right: 1px solid;
+.drawing, .menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
+  padding: 0 10px 0 15px;
+}
+
+.drawing {
+  border-right: 1px solid white;
 }
 
 .drawing:last-child {
   border-right: none;
+}
+.drawing:last-child:hover {
+  border-right: none;
+}
+
+.drawing:hover, .menu-item:hover {
+  color: rgb(148, 139, 139);
+}
+
+.drawing:hover {
+  border-right: 1px solid white;
+}
+
+.drawing svg, .others svg {
+  color: rgb(196, 248, 244);
+  font-size: 1.3rem;
+  padding-bottom: 0.2rem;
 }
 
 .drawing-container {
@@ -38,9 +61,9 @@
   display: none;
   top: 100px;
   right: 0;
-  width: 270px;
-  height: 40px;
-  background-color: darkred;
+  width: 470px;
+  height: 50px;
+  background-color: var(--orchid-color);;
   align-items: center;
   justify-content: space-between;
 }
