@@ -9,3 +9,14 @@ mapLayersMenu.onclick = () => {
   else
    mapContainerId.style.display = 'flex';
 }
+
+const nepalBoundaryId = document.getElementById('nepalBoundary')
+const stateBoundaryId = document.getElementById('stateBoundary')
+
+nepalBoundaryId.onclick = () => {
+  nepalBoundaryLayer.setVisible(!nepalBoundaryLayer.getVisible())
+}
+
+stateBoundaryId.onclick = () => {
+  stateBoundaryLayer.setVisible(!stateBoundaryLayer.getVisible())
+}

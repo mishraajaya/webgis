@@ -9,7 +9,8 @@ module.exports = {
       "./src/js/mapLayers/backgroundLayers.js",
       "./src/js/mapLayers/vectorLayers.js",
       "./src/js/printMap.js",
-      "./src/js/layerTree.js"
+      "./src/js/layerTree.js",
+      './src/js/measurementTools.js'
     ]
   },
   mode: "development",

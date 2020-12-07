@@ -57,9 +57,10 @@
 }
 
 .drawing-container {
+  z-index: 101;
   position: fixed;
   display: none;
-  top: 100px;
+  top: 400px;
   right: 0;
   width: 470px;
   height: 50px;

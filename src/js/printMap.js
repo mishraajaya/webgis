@@ -7,6 +7,18 @@ const dimensions = {
   a5: [210, 148]
 }
 
+const printMapMenu = document.getElementById('printMapMenu')
+
+printMapMenu.onclick = () => {
+  const printMapContainer = document.getElementById('printMap')
+  const style = printMapContainer.style.display
+
+  if (style === 'flex')
+    printMapContainer.style.display = 'none'
+  else
+    printMapContainer.style.display = 'flex'
+}
+
 const exportMap = document.getElementById('exportMap')
 
 exportMap.onclick = () => {

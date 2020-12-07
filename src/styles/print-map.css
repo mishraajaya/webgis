@@ -1,5 +1,5 @@
 .print-container {
-  display: flex;
+  display: none;
   position: fixed;
   background: var(--orchid-color);
   top: 100px;
