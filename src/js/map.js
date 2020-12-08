@@ -24,9 +24,15 @@ const view = new View({
 })
 
 vectorSource = new VectorSource()
+measurementVectorSource = new VectorSource()
 
 const vectorDrawingLayer = new VectorLayer({
   source: vectorSource,
+  zIndex: 1001
+})
+
+const vectorMeasurementLayer = new VectorLayer({
+  source: measurementVectorSource,
   zIndex: 1001
 })
 
@@ -47,6 +53,6 @@ const overviewMapControl = new OverviewMap({
 map = new Map({
   target: 'map', // id of a div in index.html
   view: view,
-  layers: [vectorDrawingLayer],
+  layers: [vectorDrawingLayer, vectorMeasurementLayer],
   controls: defaults().extend([mousePositionControl, overviewMapControl])
 })
