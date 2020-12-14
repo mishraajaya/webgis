@@ -1,11 +1,15 @@
 import LineString from 'ol/geom/LineString'
+import Polygon from 'ol/geom/Polygon'
+// import { LineString, Polygon } from 'ol/geom'
 import Draw from 'ol/interaction/Draw'
-import {getLength} from 'ol/sphere'
+import { getLength, getArea } from 'ol/sphere'
 import Overlay from 'ol/Overlay'
+
+import { Stroke, Style, Fill, Circle as CircleStyle } from 'ol/style'
 
 const measurementToolsMenu = document.getElementById('measurementToolsMenu')
 
-const calculateArea = document.getElementById('calculateArea')
+const calculateAreaElement = document.getElementById('calculateArea')
 const calculateDistance = document.getElementById('calculateDistance')
 const deleteAllMeasurements = document.getElementById('deleteAllMeasurements')
 const measureNothing = document.getElementById('measureNothing')
@@ -32,6 +36,7 @@ document.onreadystatechange = function () {
     let helpTooltipElement = ''
     let helpTooltip = ''
     let continueDrawLineMsg = 'Click to continue drawing Line'
+    let continueDrawPolygonMsg = 'Click to continue drawing Polygon'
 
     const pointerMoveHandler = e => {
       if (e.dragging) return
@@ -39,7 +44,11 @@ document.onreadystatechange = function () {
       let helpMessage = "Click to start Drawing"
 
       if (sketch) {
-        helpMessage = continueDrawLineMsg
+        const geom = sketch.getGeometry()
+        if (geom instanceof LineString)
+          helpMessage = continueDrawLineMsg
+        else if (geom instanceof Polygon)
+          helpMessage = continueDrawPolygonMsg
       }
 
       helpTooltipElement.innerHTML = helpMessage
@@ -86,12 +95,33 @@ document.onreadystatechange = function () {
       return output
     }
 
+    const calculateArea = polygon => {
+      const area = getArea(polygon)
+      const output = area + ' unit<sup>2</sup>'
+      return output
+    }
+
     const addInteraction = () => {
       if (shape !== 'NONE') {
-        //DRAW SHAPE
         draw = new Draw({
           source: measurementVectorSource,
-          type: shape
+          type: shape,
+          style: new Style({
+            fill: new Fill({
+              color: 'rgba(255, 255, 255, 0.2)'
+            }),
+            stroke: new Stroke({
+              color: '#000000',
+              width: 2,
+              lineDash: [10, 10]
+            }),
+            image: new CircleStyle({
+              radius: 7,
+              fill: new Fill({
+                color: 'rgb(0, 0, 0)'
+              })
+            })
+          }),
         })
       } else return null
 
@@ -112,8 +142,11 @@ document.onreadystatechange = function () {
           let output = ''
           if (geom instanceof LineString) {
             output = calculateLength(geom)
-            // console.log("output=", output)
             tooltipCoordinate = geom.getLastCoordinate()
+          }
+          else if(geom instanceof Polygon) {
+            output = calculateArea(geom)
+            tooltipCoordinate = geom.getInteriorPoint().getCoordinates()
           }
           measurementTooltipElement.innerHTML = output
           measurementTooltip.setPosition(tooltipCoordinate)
@@ -121,13 +154,14 @@ document.onreadystatechange = function () {
       })
 
       draw.on('drawend', function(e) {
-        console.log("Finished")
+        measurementTooltipElement = null
+        createMeasurementTooltip()
       })
     }
     
-    calculateArea.onclick = () => {
+    calculateAreaElement.onclick = () => {
       shape = 'Polygon'
-      console.log("CalculateArea:", shape)
+      addInteraction()
     }
     
     calculateDistance.onclick = () => {
